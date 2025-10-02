@@ -1,0 +1,53 @@
+nav {
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+}
+
+.filtre {
+    padding: 5px 10px;
+    border: 1px solid #333;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.filtre--actif {
+    background-color: #333;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px;
+}
+
+.livre {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.livre img {
+    width: 100%;
+    height: auto;
+}
+
+.livre h3 {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.livre .prix {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.livre button {
+    padding: 3px 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
