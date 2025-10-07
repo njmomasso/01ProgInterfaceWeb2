@@ -1,6 +1,7 @@
 import { Livre } from "../classes/Livre.js";
 import { livres } from "../data/livres.js";
 import { Filtre } from "../classes/Filtre.js";
+import { BoiteModale } from "../classes/BoiteModale.js";
 
 const grilleHTML = document.querySelector("[data-conteneur-livres]");
 const conteneurFiltres = document.querySelector("[data-conteneur-filtres]");
