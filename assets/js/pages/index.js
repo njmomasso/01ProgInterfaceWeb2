@@ -12,7 +12,7 @@ const livreObjet = livres.map(obj => new Livre(obj));
 
 // Fonction qui affiche une liste de livres
 function afficherListe(livreTableau) {
-    grilleHTML.innerHTML = ""; // on efface le contenu avant d'afficher
+    grilleHTML.innerHTML = ""; 
 
     livreTableau.forEach(livre => {
         grilleHTML.insertAdjacentHTML("beforeend", livre.genererGabaritTuile());

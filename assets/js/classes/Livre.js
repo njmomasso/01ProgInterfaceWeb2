@@ -1,5 +1,3 @@
-// assets/js/classes/Livres.js
-
 export class Livre {
     // Stockage privé des données de chaque livre
     #data;
