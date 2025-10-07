@@ -2,8 +2,6 @@ import { Livre } from "../classes/Livre.js";
 import { livres } from "../data/livres.js";
 import { Filtre } from "../classes/Filtre.js"; 
 
-
-
 const grilleHTML = document.querySelector("[data-conteneur-livres]");
 const conteneurFiltres = document.querySelector("[data-conteneur-filtres]");
 
