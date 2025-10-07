@@ -3,8 +3,6 @@ import { livres } from "../data/livres.js";
 import { Filtre } from "../classes/Filtre.js";
 import { BoiteModale } from "../classes/BoiteModale.js";
 
-
-
 const grilleHTML = document.querySelector("[data-conteneur-livres]");
 const conteneurFiltres = document.querySelector("[data-conteneur-filtres]");
 
@@ -17,13 +15,10 @@ function afficherListe(livreTableau) {
     grilleHTML.innerHTML = ""; // on efface le contenu avant d'afficher
 
     livreTableau.forEach(livre => {
-        // Ajouter le gabarit HTML de la tuile
         grilleHTML.insertAdjacentHTML("beforeend", livre.genererGabaritTuile());
-
-        // Récupérer le dernier élément ajouté (= la tuile)
         const tuile = grilleHTML.lastElementChild;
 
-        // Ajouter un listener pour ouvrir la boîte modale
+        // Ouvrir la modale au clic
         tuile.addEventListener("click", () => {
             console.log("Ouvrir modal pour :", livre.getCompleteData());
             modal.afficher(livre.getCompleteData());
@@ -45,41 +40,29 @@ const labelFiltres = [
 
 // Création des boutons de filtre et gestion du clic
 labelFiltres.forEach(label => {
-    const bouton = new Filtre(conteneurFiltres, label, label); // le label sert aussi de valeur
+    const bouton = new Filtre(conteneurFiltres, label, label);
 
     bouton.element.addEventListener("click", () => {
-        // Désactiver visuellement tous les boutons
         document.querySelectorAll(".filtre").forEach(btn => btn.classList.remove("filtre--actif"));
-
-        // Activer le bouton cliqué
         bouton.toggle();
-
-        // Appliquer le filtre correspondant
         appliquerFiltre(bouton.getValeur());
     });
 });
 
-/**
- * Applique le filtre choisi et met à jour l'affichage
- * @param {string} valeur - label du filtre cliqué
- */
+// Applique le filtre choisi
 function appliquerFiltre(valeur) {
     let livresFiltres;
 
     if (valeur === "Tous") {
-        // Afficher tous les livres
         livresFiltres = livreObjet;
     } else if (valeur === "Nouveautés") {
-        // Afficher uniquement les nouveautés
         livresFiltres = livreObjet.filter(livre => livre.isNouveaute());
     } else {
-        // Afficher les livres dont la catégorie correspond
         livresFiltres = livreObjet.filter(livre => livre.getCategorie() === valeur);
     }
 
-    // Mettre à jour l'affichage
     afficherListe(livresFiltres);
 }
 
-
+// Affichage initial
 afficherListe(livreObjet);
