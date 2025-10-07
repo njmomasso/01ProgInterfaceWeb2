@@ -6,6 +6,8 @@ import { BoiteModale } from "../classes/BoiteModale.js";
 const grilleHTML = document.querySelector("[data-conteneur-livres]");
 const conteneurFiltres = document.querySelector("[data-conteneur-filtres]");
 
+// Instanciation des classes
+const modal = new BoiteModale(document.body);
 const livreObjet = livres.map(obj => new Livre(obj));
 
 // Fonction qui affiche une liste de livres
@@ -22,7 +24,7 @@ function afficherListe(livreTableau) {
         // Ajouter un listener pour ouvrir la boîte modale
         tuile.addEventListener("click", () => {
             console.log("Ouvrir modal pour :", livre.getCompleteData());
-            //modal.afficher(livre.getCompleteData()) ......
+            modal.afficher(livre.getCompleteData());
         });
     });
 }
